@@ -16,13 +16,14 @@ interface Product {
   imageUrl: string;
 }
 
-const page = async ({ params }: { params: { productdetail: string } }) => {
+const page = async (props: { params: Promise<{ productdetail: string }> }) => {
+  const params = await props.params;
   const query = `*[_type == "products"] {
     id, title, stock, description, material, price, color, "imageUrl": image.asset->url
   }`;
 
   const data: Product[] = await client.fetch(query);
-  
+
   // Ensure to handle case when product is not found
   const product = data.find((item) => item.id === Number(params.productdetail));
 

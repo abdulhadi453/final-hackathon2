@@ -42,6 +42,7 @@ export default function Products({ data }: { data: Product[] | null }) { // Allo
   );
 
   return (
+   
     <div className="w-[1000px] h-full flex flex-wrap gap-3 relative left-8">
       {currentProducts.map((val) => (
         <div key={val.id} className="relative w-[300px] flex-grow h-[533px]">
@@ -78,9 +79,10 @@ export default function Products({ data }: { data: Product[] | null }) { // Allo
             />
           </Link>
         </div>
+      
       ))}
 
-      {/* Pagination Buttons */}
+      Pagination Buttons
       <div className="flex justify-center items-center w-full mb-6 mt-6 gap-4">
         <button
           className="px-4 py-2 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
